@@ -30,6 +30,11 @@ return new class extends Migration
             // so posting stays idempotent and unposted sources are findable.
             $table->nullableMorphs('source');
 
+            // The other side of the movement as a real record (a customer,
+            // vendor, contact, ...). counterparty stays as a denormalized label
+            // for display and for genuine one-offs with no record to bind to.
+            $table->nullableMorphs('party');
+
             $table->string('counterparty')->nullable();
             $table->timestamp('occurred_at')->nullable();
             $table->text('description')->nullable();

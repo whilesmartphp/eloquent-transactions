@@ -1,3 +1,6 @@
+## [1.1.0] - 2026-08-17
+- Optional `party` link so a transaction binds its counterparty to a real record (customer, contact, ...); `counterparty` stays as a denormalized label for one-offs
+
 ## [1.0.0] - 2026-08-14
 - Account transactions (deposit, withdrawal, transfer, fee, adjustment), scoped per owner via owner-access
 - Auto-generated per-owner transaction references, unique per owner

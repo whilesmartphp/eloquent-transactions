@@ -107,6 +107,19 @@ class TransactionApiTest extends TestCase
     }
 
     #[Test]
+    public function it_binds_a_party_to_a_recorded_transaction(): void
+    {
+        $this->postJson('/api/transactions', $this->deposit([
+            'party_type' => 'customer',
+            'party_id' => 42,
+            'counterparty' => 'Globex Trading',
+        ]))->assertCreated()
+            ->assertJsonPath('data.party_type', 'customer')
+            ->assertJsonPath('data.party_id', 42)
+            ->assertJsonPath('data.counterparty', 'Globex Trading');
+    }
+
+    #[Test]
     public function it_links_a_transaction_to_its_source_and_finds_it(): void
     {
         $source = Transaction::create($this->deposit());
