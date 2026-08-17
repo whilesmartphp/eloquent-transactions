@@ -26,6 +26,8 @@ class TransactionResource extends JsonResource
             'transfer_group' => $this->transfer_group,
             'source_type' => $this->source_type,
             'source_id' => $this->source_id,
+            'party_type' => $this->party_type,
+            'party_id' => $this->party_id,
             'counterparty' => $this->counterparty,
             'occurred_at' => $this->occurred_at?->toIso8601String(),
             'description' => $this->description,
