@@ -26,6 +26,8 @@ class StoreTransferRequest extends FormRequest
             'amount_cents' => ['required', 'integer', 'min:1'],
             'currency' => ['nullable', 'string', 'size:3'],
             'counterparty' => ['nullable', 'string', 'max:200'],
+            'party_type' => ['nullable', 'string', 'required_with:party_id'],
+            'party_id' => ['nullable', 'required_with:party_type'],
             'occurred_at' => ['nullable', 'date'],
             'description' => ['nullable', 'string'],
             'metadata' => ['nullable', 'array'],

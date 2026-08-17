@@ -104,6 +104,11 @@ class Transaction extends Model
         return $this->morphTo();
     }
 
+    public function party(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
     public function scopePosted(Builder $query): Builder
     {
         return $query->where('status', TransactionStatus::Posted->value);
